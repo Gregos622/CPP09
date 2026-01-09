@@ -1,0 +1,16 @@
+# Ignorer les fichiers objets et binaires
+*.o
+ex00/btc
+
+# Ignorer les dossiers de compilation
+obj/
+build/
+
+# Ignorer les fichiers temporaires
+*~
+*.swp
+
+# Ignorer les logs
+*.log
+
+.vscode/settings.json

@@ -1,42 +1,36 @@
 #pragma once
 
-#include <vector>
+#include <map>
 #include <fstream>
 #include <exception>
 #include <string>
 #include <iostream>
 #include <cstdlib>
 
-typedef struct s_file t_file;
-typedef struct s_date t_date;
-
-struct s_file
-{
-    //t_date date;
-    std::string date;
-    int price;
-    int exchange;
-};
-
-struct s_date
-{
-    int year;
-    int month;
-    int day;
-};
 
 class BitcoinExchange
 {
-    private:
-        std::vector<t_file> _file;
+	private:
+		struct Input
+		{
+			std::string date;
+			float exchange;
+		};
+		std::map<std::string, float> _data;
 
-        bool invalid_line(std::string line);
+		bool invalid_line(const std::string& line);
+		float evaluate(const Input input);
+		bool read_db();
+		bool line_is_valid(const std::string& line);
+		Input extract_data(const std::string& line);
 
-    public:
-        BitcoinExchange();
+	public:
+
+		BitcoinExchange();
         BitcoinExchange(const BitcoinExchange& other);
         BitcoinExchange& operator=(const BitcoinExchange& other);
         ~BitcoinExchange();
 
-        void read_file();
+		int compute(const char *file_name);
 };
+
