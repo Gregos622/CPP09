@@ -1,6 +1,6 @@
 # Ignorer les fichiers objets et binaires
 *.o
-ex00/btc
+btc
 
 # Ignorer les dossiers de compilation
 obj/
