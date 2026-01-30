@@ -1,6 +1,8 @@
 # Ignorer les fichiers objets et binaires
 *.o
 btc
+RPN
+PmergeMe
 
 # Ignorer les dossiers de compilation
 obj/
